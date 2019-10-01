@@ -1,0 +1,6 @@
+		<table class="w3-table w3-striped w3-border">
+			<tr><th>Day</th><th>Hours Worked</th></tr>
+			<c:forEach var="hrs" items="${bobsHours}" varStatus="stat">
+			<tr><td>${stat.count}</td><td>${hrs}</td></tr>
+			</c:forEach>
+		</table>

@@ -1,0 +1,14 @@
+		<table class="w3-table w3-striped w3-border">
+			<tr><th>Day</th><th>Hours Worked</th></tr>
+			<c:forEach var="hrs" items="${genesHours}" varStatus="stat">
+			<tr><td>${stat.count}</td><td>${hrs}</td></tr>
+			</c:forEach>
+			<tr><td colspan="2">Total Hours Worked: ${emp.hours}</td></tr>
+		</table>
+		<table class="w3-table w3-striped w3-border">
+			<tr><th>Day</th><th>Pieces Produced</th></tr>
+			<c:forEach var="pcs" items="${genesPieces}" varStatus="stat">
+			<tr><td>${stat.count}</td><td>${pcs}</td></tr>
+			</c:forEach>
+			<tr><td colspan="2">Total Pieces Produced: ${emp.pieces}</td></tr>
+		</table>	
