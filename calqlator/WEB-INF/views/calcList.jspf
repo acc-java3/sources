@@ -1,0 +1,10 @@
+			<!-- calc list -->
+			<div class="w3-container w3-margin">
+				<h3>Previous Calculations</h3>
+				<ul class="w3-ul w3-border">
+				<c:forEach var="calc" items="${calcList}">
+					<li><tt>${calc}</tt></li>
+				</c:forEach>
+				</ul>
+			</div>
+		

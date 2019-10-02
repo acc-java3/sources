@@ -1,0 +1,17 @@
+			<!-- calc form -->
+			<form class="w3-container w3-margin" method="POST" action="main">
+				<input type="hidden" name="action" value="calculate"/>
+				<input class="w3-input w3-border" placeholder="0.0" name="op1"/>
+				<select class="w3-select" name="op">
+					<option value="" disabled selected>Select an Operation</option>
+					<option value="+"><tt>+</tt></option>
+					<option value="-"><tt>-</tt></option>
+					<option value="x"><tt>x</tt></option>
+					<option value="/"><tt>/</tt></option>
+					<option value="%"><tt>%</tt></option>
+					<option value="^"><tt>^</tt></option>
+				</select>
+				<input class="w3-input w3-border" placeholder="0.0" name="op2"/>
+				<button class="w3-button w3-blue-grey">Execute</button>
+			</form>
+		

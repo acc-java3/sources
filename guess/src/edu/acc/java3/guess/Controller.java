@@ -1,13 +1,18 @@
-package edu.acc.java3.guess;
+package // your package name here
 
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-public class Controller extends HttpServlet {
-	private String actionDefault;
-	private String viewDir;
-	private String viewType;
+public class FrontController extends HttpServlet {
+	/*
+		You can configure these in the deployment descriptor and load
+		values using an override of this Servlet's init() method or you
+		can just set the defaults here as you wish;
+	*/
+	private String actionDefault; // the initial action of your app
+	private String viewDir;		  // the folder where your JSPs are stored
+	private String viewType;	  // the filename extension of your preferred view language (.jsp for us)
 	
 	@Override
 	public void init() {
@@ -23,41 +28,22 @@ public class Controller extends HttpServlet {
 		if (action == null || action.length() < 1) action = actionDefault;
 		switch (action) {
 			default:
-			case "start": destination = start(request); break;
-			case "guess": destination = guess(request); break;
+			/* Add a case for each action (feature) you want to define using this
+				pattern:
+				case "action-name-here": destination = action-name-here(request); break;
+			*/
 		}
 		request.getRequestDispatcher(viewDir + "/" + destination + viewType).forward(request, response);		
 	}
 	
-	private String start(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		int range = (Integer)this.getServletContext().getAttribute("range");
-		Game game = new Game(range);
-		session.setAttribute("game", game);
-		return "start";
-	}
-	
-	private String guess(HttpServletRequest request) {
-		if (request.getMethod().equalsIgnoreCase("GET")) return "start";
-		Game game = (Game)request.getSession().getAttribute("game");
-		String destination = "guess";
-		String guessText = request.getParameter("guess");		
-		try {
-			int guess = Integer.parseInt(guessText);
-			int result = game.guess(guess);
-			if (result < 0)
-				request.setAttribute("message", "Guess higher than " + guess);
-			else if (result > 0)
-				request.setAttribute("message", "Guess lower than " + guess);
-			else 
-				destination = "win";
-		} catch (IllegalArgumentException | NullPointerException e) {
-			request.setAttribute("flash",
-				"Guess must be a number between 1 and " + game.getRange());
-		} finally {
-			return destination;
+	/*
+		Add handlers for your actions here using this pattern:
+		private String action-name-here(HttpServletRequest request) {
 		}
-	}
+	
+		Make sure to return the name of the destination view without the
+		filename extension
+	*/
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
