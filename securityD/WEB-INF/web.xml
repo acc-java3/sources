@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+  version="3.1"
+  metadata-complete="true">
+
+  <display-name>Security Demo</display-name>
+  <description>
+	Sample the DIGEST authentication technique
+  </description>
+
+  <security-role>
+	<role-name>admin</role-name>
+  </security-role>
+
+  <security-constraint>
+	<web-resource-collection>
+	    <web-resource-name>Administration</web-resource-name>
+	    <url-pattern>/index.jsp</url-pattern>
+	    <http-method>GET</http-method>
+	</web-resource-collection>
+	<auth-constraint>
+	    <role-name>admin</role-name>
+	</auth-constraint>
+  </security-constraint>
+
+  <login-config>
+	<auth-method>DIGEST</auth-method>
+	<!-- this realm name must be included in the digested password:
+	CATALINA_HOME\bin\digest.bat -a md5 -s 0 username:realmname:password
+	copy the part after the last dollar sign into the password
+	-->
+	<realm-name>digestrealm</realm-name>
+  </login-config>
+
+  <welcome-file-list>
+	<welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
