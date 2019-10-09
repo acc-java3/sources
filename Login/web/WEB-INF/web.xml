@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <context-param>
+        <param-name>view.dir</param-name>
+        <param-value>/WEB-INF/views</param-value>
+    </context-param>
+    <context-param>
+        <param-name>view.type</param-name>
+        <param-value>.jsp</param-value>
+    </context-param>
+    <context-param>
+        <param-name>action.default</param-name>
+        <param-value>login</param-value>
+    </context-param>
+    <context-param>
+        <param-name>validUsername</param-name>
+        <param-value>javauser</param-value>
+    </context-param>
+    <context-param>
+        <param-name>validPassword</param-name>
+        <param-value>javauser</param-value>
+    </context-param>
+    <context-param>
+        <param-name>validId</param-name>
+        <param-value>501</param-value>
+    </context-param>
+    <context-param>
+        <param-name>redirect.tag</param-name>
+        <param-value>redirect:</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>FC</servlet-name>
+        <servlet-class>edu.acc.java3.login.FrontController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FC</servlet-name>
+        <url-pattern>/main</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            10
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>main</welcome-file>
+    </welcome-file-list>
+</web-app>

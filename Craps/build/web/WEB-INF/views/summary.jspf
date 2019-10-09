@@ -1,0 +1,15 @@
+<table class="w3-table w3-hoverable w3-striped w3-bordered">
+    <tr><th>Statistic</th><th>Value</th></tr>
+    <tr><td>Die 1</td><td>${player.die1}</td></tr>
+    <tr><td>Die 2</td><td>${player.die2}</td></tr>
+    <tr><td>Sum</td><td>${player.sum}</td></tr>
+    <tr><td>Point</td><td>${player.point}</td></tr>
+    <tr><td>Running Bet</td><td>${player.runningBet}</td></tr>
+    <tr><td>Bank</td><td>${player.bank}</td></tr>
+    <tr><td>Wins</td><td>${player.wins}</td></tr>
+    <tr><td>Losses</td><td>${player.losses}</td></tr>
+    <tr><td>Rolls</td><td>${player.rolls}</td></tr>
+</table>
+<a href="main?action=start">Play Again</a>
+&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="main?action=logout">Quit Game and Reset Stats</a>
